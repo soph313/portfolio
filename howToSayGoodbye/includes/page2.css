@@ -1,0 +1,239 @@
+.prevent-select {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+body {
+    background-image: url(/images/paper.jpg);
+    background-repeat: no-repeat;
+    background-size: cover; /* or contain based on your needs */
+    background-position: center; /* Center the background */
+    position: relative; /* Change to relative */
+    height: 100vh; /* Ensure the body takes the full viewport height */
+    width: 100vw; /* Ensure the body takes the full viewport width */
+    overflow: hidden; /* Prevent scrolling of the body */
+}
+
+
+
+.container {
+    position: relative;
+    height: 2200vh; /* Make the container tall to enable scrolling */
+}
+
+.text p {
+    position: fixed;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity .3s ease;
+    font-size:clamp(18px, 2.5vh, 40px);
+}
+.image img {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity .3s ease;
+}
+
+.text p:not(.hidden),
+.image img:not(.hidden) {
+    opacity: 1;
+}
+
+.text {
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    text-align: center;
+    position: relative;
+    /* white-space: nowrap; */
+}
+
+#alone {
+    height: 50vh;
+    width: auto;
+    min-height: 200px;
+    max-height: 500px;
+    width: auto;
+    min-width: auto;
+    max-width: auto;
+    top: 50%;
+}
+
+#running {
+    height: auto;
+    min-height: auto;
+    max-height: auto;
+    width: 80vw;
+    min-width: 100px;
+    max-width: 350px;
+    top: 50%;
+}
+
+#walking {
+    height: auto;
+    min-height: auto;
+    max-height: auto;
+    width: 80vw;
+    min-width: 100px;
+    max-width: 300px;
+    top: 55%;
+}
+
+#alone2 {
+    height: 50vh;
+    width: auto;
+    min-height: 200px;
+    max-height: 500px;
+    width: auto;
+    min-width: auto;
+    max-width: auto;
+    top: 50%;
+}
+
+#swing1 {
+    width: 80vh;
+    height: auto;
+    min-width: 100px;
+    max-width: 550px;
+    min-height: auto;
+    max-height: auto;
+    top: 52%;
+}
+
+#swing2 {
+    height: 50vh;
+    width: auto;
+    min-height: 200px;
+    max-height: 500px;
+    width: auto;
+    min-width: auto;
+    max-width: auto;
+    top: 50%;
+}
+
+#sandbox1 {
+    height: 50vh;
+    min-height: 100px;
+    max-height: 300px;
+    width: auto;
+    min-width: auto;
+    max-width: auto;
+    top: 50%;
+}
+
+#leftOut {
+    width: 80vw;
+    min-height: auto;
+    max-height: auto;
+    height: auto;
+    min-width: 200px;
+    max-width: 500px;
+    top: 50%;
+}
+
+#sandbox2 {
+    height: 50vh;
+    min-height: 100px;
+    max-height: 450px;
+    width: auto;
+    min-width: auto;
+    max-width: auto;
+    top: 50%;
+}
+
+#youth {
+    width: 80vw;
+    min-height: auto;
+    max-height: auto;
+    height: auto;
+    min-width: 200px;
+    max-width: 300px;
+    top: 50%;
+}
+
+#talking {
+    width: 80vw;
+    min-height: auto;
+    max-height: auto;
+    height: auto;
+    min-width: 200px;
+    max-width: 300px;
+    top: 50%;
+}
+
+#talker {
+    height: 50vh;
+    min-height: 100px;
+    max-height: 400px;
+    width: auto;
+    min-width: auto;
+    max-width: auto;
+    top: 53%;
+}
+
+#parents{
+    width: 80vw;
+    min-height: auto;
+    max-height: auto;
+    height: auto;
+    min-width: 200px;
+    max-width: 350px;
+    top: 53%;
+} 
+
+#friends {
+    width: 80vw;
+    min-height: auto;
+    max-height: auto;
+    height: auto;
+    min-width: 200px;
+    max-width: 300px;
+    top: 53%;
+}
+
+
+#through {
+    height: 50vh;
+    min-height: 100px;
+    max-height: 400px;
+    width: auto;
+    min-width: auto;
+    max-width: auto;
+    top: 50%;
+}
+
+#audio {
+    position: fixed;
+    border-radius: clamp(10px, 1vw, 20px);
+    background-image: url(/images/paper.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    top: clamp(20px, 5%, 30px);
+    left: clamp(100px, 10%, 300px);
+    font-size: clamp(15px, 1vw, 30px);
+}
+
+#home {
+    border-radius: clamp(10px, 1vw, 20px);
+    background-image: url(/images/paper.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: fixed;
+    top: clamp(20px, 5%, 30px);
+    left: clamp(20px, 2%, 200px);
+    font-size: clamp(15px, 1vw, 30px);
+}
+
+button:not(:active) {
+    /* background-image: url(/proj2/images/squirrels/textureDark.jpg); */
+    color: #151515;
+    box-shadow: 0 5px #151515;
+    transform: translateY(-15%);
+}

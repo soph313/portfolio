@@ -1,0 +1,53 @@
+#clicker:not(:active) {
+    /* background-image: url(/proj2/images/squirrels/textureDark.jpg); */
+    color: #151515;
+    box-shadow: 0 5px #151515;
+    transform: translate(-50%, -50%) translateY(30%);
+}
+
+.prevent-select {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: fixed;
+    background-image: url(/images/paper.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#clicker {
+    position: fixed;
+    border-radius: clamp(10px, 1vw, 20px);
+    background-image: url(/images/paper.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: clamp(30px, 2vw, 40px);
+}
+/* // <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 100 to 700 */
+
+.text {
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    text-align: center;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+p {
+    top: 35%;
+    font-size:clamp(30px, 2vw, 40px);
+}

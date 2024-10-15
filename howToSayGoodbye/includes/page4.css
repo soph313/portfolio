@@ -1,0 +1,100 @@
+.prevent-select {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+body {
+    background-image: url(/images/paper.jpg);
+}
+
+.container {
+    position: relative;
+    height: 600vh; /* Make the container tall to enable scrolling */
+}
+
+.text p {
+    position: fixed;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+.image img {
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.text p:not(.hidden),
+.image img:not(.hidden) {
+    opacity: 1;
+}
+
+.text {
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 2vw;
+    font-weight: 300;
+    font-style: normal;
+    text-align: center;
+    position: relative;
+}
+
+button {
+    position: relative;
+    border-radius: 1vw;
+    background-image: url(/images/paper.jpg);
+    background-size: 100%;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#sandbox1 {
+    height: 50vh;
+    width: auto;
+    top: 50%;
+}
+
+#sandbox2 {
+    height: 50vh;
+    width: auto;
+    top: 50%;
+}
+
+#leftOut {
+    height: 50vh;
+    width: auto;
+    top: 50%;
+}
+
+#youth {
+    height: 50vh;
+    width: auto;
+    top: 50%;
+}
+
+#swing1 {
+    height: 50vh;
+    width: auto;
+    top: 50%;
+}
+
+#swing2 {
+    height: 55vh;
+    width: auto;
+    top: 52%;
+}
+#audio{
+        position: fixed;
+        border-radius: 1vw;
+        background-image: url(/images/paper.jpg);
+        background-size: 100%;
+        top: 5%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
