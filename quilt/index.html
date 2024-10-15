@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+
+    <title>a snapshot quilt</title>
+
+
+    <link rel = "stylesheet" href = "reset.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div class="flex-container">
+        <div id="quilt1" class="quilt">
+            <div id="quiltPatternDiv"></div>
+        </div>
+
+        <div class="text-container">
+            <p id="question" class="text">these quilts are a snapshot of a moment that once was my present. <br><br>would you like to build your own quilt?</p>
+            <a href="#section2">
+                <div id="button" class="prevent-select text">
+                    yes
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div id="section2" class="flex-container">
+        <div id="quilt2" class="quilt">
+            <div id="quiltPatternDiv2"></div>
+        </div>
+    </div>
+
+      
+
+    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.riso.js"></script>
+    <script src="sketch.js"></script>
+</body>
+</html>

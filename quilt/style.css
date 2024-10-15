@@ -1,0 +1,165 @@
+body {
+    width: 100vw;
+    height: 200vh;
+    position: relative;
+    background-image: url(/assets/backgroundImage.jpg);
+    background-size: 30%;
+    background-repeat: repeat;
+}
+
+.quilt {
+    position: relative;
+    background-image: url(/assets/borders.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+}
+
+#quilt1 {
+    height: 58vh;
+    width: 50vh;
+}
+#question {
+    text-align: left;
+}
+
+#quiltPatternDiv {
+    height: auto; 
+    max-height: 54vh;
+    width: 100%; 
+    max-width: 45.8vh; 
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: .5vh;
+    z-index: 0;
+}
+
+
+.flex-container {
+    display: flex;
+    flex-direction: row; /* Default to row layout */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Optional: Adjust padding or margins if necessary */
+.text-container {
+    margin-left: 2vw;
+    margin-top: 1vh; /* Add space between the quilt and text */
+}
+
+/* Media query to switch to column layout on smaller screens */
+@media (max-width: 600px) {
+    .flex-container {
+        flex-direction: column; /* Change to column layout on small screens */
+    }
+}
+
+
+
+.prevent-select {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+.text {
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-size: clamp(10px, 1.25vw, 30px);
+    font-weight: 300;
+    line-height: 2.5vh;
+    font-style: normal;
+    color: #BE5103;
+}
+
+
+#sectiontwo {
+    top: 50%;
+}
+
+a {
+    text-decoration: none;
+}
+div #button {
+    text-align: center;
+    --c: #BE5103;
+    color: var(--c);
+    border: 0.1em solid var(--c);
+    border-radius: 0.5em;
+    width: 5em; 
+    height: 1.25em;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: 0.5s;
+    margin-top: .5vh;
+}
+
+div #button span {
+    position: absolute;
+    width: 25%;
+    height: 100%;
+    background-color: var(--c);
+    transform: translateY(150%);
+    border-radius: 50%;
+    left: calc((var(--n) - 1) * 25%);
+    transition: 0.5s;
+    transition-delay: calc((var(--n) - 1) * 0.1s);
+    z-index: -1;
+}
+
+div #button:hover {
+    color: black;
+}
+
+div #button:hover span {
+    transform: translateY(0) scale(2);
+}
+
+div #button span:nth-child(1) {
+    --n: 1;
+}
+
+div #button span:nth-child(2) {
+    --n: 2;
+}
+
+div #button span:nth-child(3) {
+    --n: 3;
+}
+
+div #button span:nth-child(4) {
+    --n: 4;
+}
+
+#quilt2 {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+
+    height: 70vh;
+    width: 60vh;
+}
+
+
+#quiltPatternDiv2 {
+    height: auto; 
+    max-height: 64vh;
+    width: 100%; 
+    max-width: 55vh; 
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: .5vh;
+    z-index: 0;
+}
