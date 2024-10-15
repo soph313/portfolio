@@ -1,13 +1,13 @@
 const sketch1 = (p) => {
     let img = [];
     let patternColors = [
-        "quilt/assets/GreenFabric.png", 
-        "quilt/assets/Orange1Fabric.png", 
-        "quilt/assets/Orange2Fabric.png", 
-        "quilt/assets/Red1Fabric.png",  
-        "quilt/assets/Yellow1Fabric.png", 
-        "quilt/assets/Yellow2Fabric.png", 
-        "quilt/assets/Yellow3Fabric.png"
+        "assets/GreenFabric.png", 
+        "assets/Orange1Fabric.png", 
+        "assets/Orange2Fabric.png", 
+        "assets/Red1Fabric.png",  
+        "assets/Yellow1Fabric.png", 
+        "assets/Yellow2Fabric.png", 
+        "assets/Yellow3Fabric.png"
     ];
     let backgroundImg;
     const squareSize = 50; // Fixed size for squares
@@ -17,7 +17,7 @@ const sketch1 = (p) => {
         for (let i = 0; i < patternColors.length; i++) {
             img[i] = p.loadImage(patternColors[i]);
         }
-        backgroundImg = p.loadImage("quilt/assets/quiltBackground.jpg");
+        backgroundImg = p.loadImage("assets/quiltBackground.jpg");
     };
 
     p.setup = () => {
@@ -68,13 +68,13 @@ const sketch1 = (p) => {
 const sketch2 = (p) => {
     let img2 = [];
     let patternColors2 = [
-        "quilt/assets/GreenFabric.png", 
-        "quilt/assets/Orange1Fabric.png", 
-        "quilt/assets/Orange2Fabric.png", 
-        "quilt/assets/Red1Fabric.png",  
-        "quilt/assets/Yellow1Fabric.png", 
-        "quilt/assets/Yellow2Fabric.png", 
-        "quilt/assets/Yellow3Fabric.png"
+        "assets/GreenFabric.png", 
+        "assets/Orange1Fabric.png", 
+        "assets/Orange2Fabric.png", 
+        "assets/Red1Fabric.png",  
+        "assets/Yellow1Fabric.png", 
+        "assets/Yellow2Fabric.png", 
+        "assets/Yellow3Fabric.png"
     ];
     let backgroundImg2;
     const squareSize2 = 50; // Fixed size for squares
@@ -84,7 +84,7 @@ const sketch2 = (p) => {
         for (let i = 0; i < patternColors2.length; i++) {
             img2[i] = p.loadImage(patternColors2[i]);
         }
-        backgroundImg2 = p.loadImage("quilt/assets/quiltBackground.jpg");
+        backgroundImg2 = p.loadImage("assets/quiltBackground.jpg");
     };
 
     p.setup = () => {
