@@ -2,14 +2,14 @@ body {
     width: 100vw;
     height: 200vh;
     position: relative;
-    background-image: url(quilt/assets/backgroundImage.jpg);
+    background-image: url(assets/backgroundImage.jpg);
     background-size: 30%;
     background-repeat: repeat;
 }
 
 .quilt {
     position: relative;
-    background-image: url(quilt/assets/borders.png);
+    background-image: url(assets/borders.png);
     background-size: 100%;
     background-repeat: no-repeat;
     display: flex;
