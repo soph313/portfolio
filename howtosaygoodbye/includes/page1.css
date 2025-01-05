@@ -15,7 +15,7 @@ body {
     width: 100vw;
     overflow: hidden;
     position: fixed;
-    background-image: url(images/paper.jpg);
+    background-image: url(../images/paper.jpg);
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -23,7 +23,7 @@ body {
 #clicker {
     position: fixed;
     border-radius: clamp(10px, 1vw, 20px);
-    background-image: url(images/paper.jpg);
+    background-image: url(../images/paper.jpg);
     background-size: 100%;
     background-repeat: no-repeat;
     top: 50%;
