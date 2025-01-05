@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV Data Visualization</title>
+    <link rel = "stylesheet" href = "includes/reset.css">
+    <link rel = "stylesheet" href = "includes/style.css">
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/futura-pt');
+    </style>
+
+</head>
+
+<body>
+    <div class="flex-container prevent-select">
+    <div class="flex-item-left prevent-select">
+        <div id="counts" style="display: none;">
+            <p id="runningCount" class="prevent-select">working and work-related activities: 0</p>
+            <p id="chasingCount" class="prevent-select">socializing and communicating: 0</p>
+            <p id="climbingCount" class="prevent-select">hobbies, free time, and leisure: 0</p>
+            <p id="eatingCount" class="prevent-select">cooking, eating, and household activities: 0</p>
+            <p id="foragingCount" class="prevent-select">sleeping and unwinding: 0</p>
+        </div>
+    </div>
+    <div id="map" class="flex-item-middle prevent-select">
+        <button id="clicker" onclick="spawnSquirrel()">would you like to squirrel around?</button>
+    </div>
+    <div class="flex-item-right">
+        <div id="buttonHolder" class="buttonSelector prevent-select">
+        </div>
+    </div>    
+
+<script>
+    const filename = 'images/nyc_squirrels.csv';
+    let imgIndex = [];
+    var runningCount = 0; //working
+    var chasingCount = 0; //socializing
+    var climbingCount = 0; //hobbies
+    var eatingCount = 0; //cooking/eating/household
+    var foragingCount = 0; //rejuvating and sleeping
+    var dupCount = 0;
+    let currentIndex = 0;
+    var newButton = false;
+
+    loadAndProcessCSV(filename);
+
+    function loadAndProcessCSV(filename) {
+        console.log(filename);
+        fetch(filename)
+            .then(response => response.text())
+            .then(csvData => {
+                console.log('CSV file success.');
+                processData(csvData);
+            })
+            .catch(error => console.error('Error CSV file:', error));
+    }
+
+    function processData(csvData) {
+        console.log('Processing CSV data:');
+
+        const lines = csvData.split('\n');
+
+        for (let i = 1; i < lines.length; i++) {
+            const values = lines[i].split(',');
+            if (values.length > 1) {
+                if (values[15].trim() == "TRUE") { //running
+                    imgIndex.push(0);
+                } else if (values[16].trim() == "TRUE") { //chasing
+                    imgIndex.push(1);
+                } else if (values[17].trim() == "TRUE") { //climbing
+                    imgIndex.push(2);
+                } else if (values[18].trim() == "TRUE") { //eating
+                    imgIndex.push(3);
+                } else if (values[19].trim() == "TRUE") { //foraging
+                    imgIndex.push(4);
+                } else {
+                    imgIndex.push(0);
+                }
+            }
+        }
+
+    }
+
+    function spawnSquirrel() {
+        document.querySelector(".buttonSelector").style.display = "flex";
+        const buttons = document.getElementById("clicker");
+        buttons.innerHTML = "continue to squirrel around";
+        buttons.className = "prevent-select"
+        document.getElementById("counts").style.display = "block";
+        if (currentIndex < imgIndex.length) {
+            var squirrelPic = ["squirrelWorking.jpg", "squirrelSocializing.jpg", "squirrelHobbies.jpg", "squirrelCooking.jpg", "squirrelSleeping.jpg" ];
+            var squirrelMood = ["working", "socializing", "enjoying hobbies", "cooking and eating", "unwinding and sleeping" ];
+            removeAllSquirrels();
+            const squirrel = document.createElement("img");
+            console.log("Index is " + imgIndex[currentIndex]);
+            squirrel.className = 'squirrel prevent-select';
+            squirrel.src = "images/squirrels/" + squirrelPic[imgIndex[currentIndex]];
+            counter();
+            console.log(imgIndex[currentIndex]);
+            console.log(imgIndex[currentIndex - 1]);
+            if (imgIndex[currentIndex] == imgIndex[currentIndex - 1]) {
+                console.log("Before: dup count is " + dupCount);
+                dupCount += 1;
+                const dupText = document.createElement("p");
+                dupText.className = "text prevent-select";
+                if (dupCount == 1) {
+                    console.log("dup1");
+                    dupText.className = "text";
+                    if (imgIndex[currentIndex] == 0) {
+                        dupText.innerHTML = "you spend a lot of time " + squirrelMood[imgIndex[currentIndex]] + ", huh?";
+                    } else {
+                        dupText.innerHTML = "oh that's nice, you're " + squirrelMood[imgIndex[currentIndex]] + " again!";
+                    }
+                    document.getElementById("map").appendChild(dupText);
+                } else if (dupCount == 2) {
+                    console.log("dup2");
+                    if (imgIndex[currentIndex] == 0) {
+                        dupText.innerHTML = "do you really enjoy dedicating that much of your life to work?";
+                    } else {
+                        dupText.innerHTML = squirrelMood[imgIndex[currentIndex]] + " i see! doing what you love a lot is good!";
+                    }
+                    document.getElementById("map").appendChild(dupText);
+                } else if (dupCount == 3) {
+                    console.log("dup3");
+                    if (imgIndex[currentIndex] == 0) {
+                        dupText.innerHTML = "ok work-a-holic, calm down. work-life balance!";
+                    } else if (imgIndex[currentIndex] == 3 || imgIndex[currentIndex] == 4) {
+                        dupText.innerHTML = "ok, this is a lot of " + squirrelMood[imgIndex[currentIndex]] + "...do you have hobbies?";
+                    } else {
+                        dupText.innerHTML = "glad to see you're " + squirrelMood[imgIndex[currentIndex]] + " again!";
+                    }
+                    document.getElementById("map").appendChild(dupText);
+                } else if (dupCount >= 4) {
+                    console.log("dup3");
+                    if (imgIndex[currentIndex] == 0) {
+                        dupText.innerHTML = "don't you work to have money to enjoy life...";
+                    } else if (imgIndex[currentIndex] == 3 || imgIndex[currentIndex] == 4) {
+                        dupText.innerHTML = "is it necessary to be " + squirrelMood[imgIndex[currentIndex]] + " this much?";
+                    } else {
+                        dupText.innerHTML = "awwww, you should spend time " + squirrelMood[imgIndex[currentIndex]] + " this much!";
+                    }
+                    document.getElementById("map").appendChild(dupText);
+                } 
+                console.log("After: dup count is " + dupCount);
+            } else {
+                dupCount = 0;
+                console.log("Reset: dup count is " + dupCount);
+            }
+            squirrel.style.position = "absolute";
+            squirrel.style.width = "auto"; // Set the width
+            squirrel.style.height = "65%"; // Set the height
+            squirrel.style.top = "7%"; 
+            squirrel.style.left = "50%"; 
+            squirrel.style.transform = "translateX(-50%)";
+            squirrel.style.zIndex = 2;
+            document.getElementById("map").appendChild(squirrel);
+
+            currentIndex++;
+            counter(imgIndex[currentIndex]);
+        }
+
+        if (currentIndex >= 10 && newButton == false) {
+            const removeButton = document.createElement("button");
+            removeButton.className = "prevent-select";
+            removeButton.innerHTML = "stop squirreling"
+            removeButton.onclick = removeElements;
+            document.getElementById("buttonHolder").appendChild(removeButton);
+            newButton = true;
+        }
+
+    }
+
+    function removeAllSquirrels() {
+        const squirrels = document.querySelectorAll('.squirrel');
+        squirrels.forEach(squirrel => squirrel.remove());
+        const dupTexts = document.querySelectorAll('.text');
+        dupTexts.forEach(text => text.remove());
+    }
+
+    function counter(actionIndex) {
+        switch (actionIndex) {
+            case 0: //running
+                runningCount++;
+                document.getElementById('runningCount').textContent = `working and work-related activities: ${runningCount}`;
+                break;
+            case 1: //chasing
+                chasingCount++;
+                document.getElementById('chasingCount').textContent = `socializing and communicating: ${chasingCount}`;
+                break;
+            case 2: //climbing
+                climbingCount++;
+                document.getElementById('climbingCount').textContent = `hobbies, free time, and leisure: ${climbingCount}`;
+                break;
+            case 3: //eating
+                eatingCount++;
+                document.getElementById('eatingCount').textContent = `cooking, eating, and household activities: ${eatingCount}`;
+                break;
+            case 4: //foraging
+                foragingCount++;
+                document.getElementById('foragingCount').textContent = `sleeping and unwinding: ${foragingCount}`;
+                break;
+            default:
+                break;
+        }
+    }
+
+    function removeElements() {
+        const elementsToRemove = document.querySelectorAll('.squirrel, .text, p, button, .flex-container, .flex-item-left, .flex-item-right, .flex-item-middle');
+        elementsToRemove.forEach(element => element.remove());
+        currentIndex = 10;
+        addNewElements();
+    }
+
+
+
+    function addNewElements() {
+        const grid = document.createElement("img");
+        grid.className = 'gridData';
+        grid.src = "images/squirrels/grid.jpg";
+        grid.style.height = "50%";
+        grid.style.width = "auto";
+        grid.style.left = "50%"; 
+        grid.style.transform = "translateX(-50%)";
+        grid.style.minHeight = "100px";
+        grid.style.position = "fixed";
+        grid.style.top = "25%";
+        document.body.appendChild(grid);
+
+        const gridCaption = document.createElement("p");
+        gridCaption.innerHTML = "we're not so different are we?<br>working and running tirelessly to try and catch a break in a world that will never give us one.";
+        gridCaption.style.textAlign = "center";
+        gridCaption.style.position = "fixed";
+        gridCaption.style.top = "50%";
+        gridCaption.style.transform = "translateY(-50%)";
+        gridCaption.style.top = "20%";
+        gridCaption.style.fontSize = "calc(6px + 1vw)";
+        gridCaption.style.lineHeight = "120%"
+        document.body.appendChild(gridCaption);
+
+        const refreshBtn = document.createElement("button");
+        refreshBtn.className = "prevent-select";
+        refreshBtn.innerHTML = "squirrel around again";
+        refreshBtn.style.top = "80%";
+        refreshBtn.style.left = "50%"; 
+        refreshBtn.style.transform = "translateX(-50%)";
+        refreshBtn.style.backgroundSize = "120%";
+        refreshBtn.style.position = "fixed";
+        refreshBtn.style.fontSize = "calc(6px + 0.7vw)";
+        refreshBtn.onclick = handleClick;
+        document.body.appendChild(refreshBtn);
+        console.log("Button created:", refreshBtn);
+    }
+
+    function handleClick() {
+        window.location.reload();
+    }
+
+
+</script>
+</body>
+</html>

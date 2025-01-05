@@ -1,0 +1,141 @@
+body {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    position: relative; 
+}
+
+#map {
+    position: relative; 
+    width: 100vw;
+    height: 100vh;
+    top: 0%;
+    z-index: 1;
+}
+
+button {
+    position: absolute;
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    background-image: url(/SquirrelingAround/images/squirrels/texture.jpg);
+    z-index: 3;
+    background-size: 100%;
+    border-radius: 5%/30%;
+    border: 0;
+    padding: .5vh .5vw;
+    font-family: "Futura PT", sans-serif;
+    color: #3d3d3d;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 9px #252525;
+}
+
+#map button {
+    top: 85%; 
+    font-size:clamp(10px, 1.4vw, 25px);
+}
+
+button:hover {
+    background-image: url(/SquirrelingAround/images/squirrels/textureDark.jpg);
+    color: #151515;
+}
+
+button:active {
+    background-image: url(/SquirrelingAround/images/squirrels/textureDark.jpg);
+    color: #151515;
+    box-shadow: 0 5px #151515;
+    transform: translate(-50%, -50%) translateY(8%);
+}
+
+
+#map p {
+    font-family: "Futura PT", sans-serif;
+    color: #3d3d3d;
+    position: absolute;
+    top: 73%;
+    right: 50%;
+    transform: translate(50%, 50%);
+    line-height: 120%;
+    font-size:clamp(10px, 1vw, 25px);
+    z-index: 10;
+    flex-grow: 1;
+    white-space: nowrap;
+}
+    
+p {
+    font-family: "Futura PT", sans-serif;
+    color: #3d3d3d;
+    position: relative;
+    z-index: 10;
+    flex-grow: 1;
+    white-space: nowrap;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+.flex-item-left {
+    /* background-color: #f1f1f1; */
+    flex: 60%;
+    min-height: 200px;
+    position: relative;
+}
+
+.flex-item-right {
+    /* background-color: dodgerblue; */
+    flex: 60%;
+    min-height: 200px;
+    position: relative;
+}
+
+.flex-item-middle {
+    min-height: 400px;
+}
+
+/* Responsive layout - makes a one column-layout instead of two-column layout */
+@media (max-width: 800px) {
+    .flex-container {
+        flex-direction: column;
+    }
+}
+#counts {
+    font-family: "Futura PT", sans-serif;
+    color: #3d3d3d;
+    position: absolute;
+    text-align: left;
+    line-height: 120%;
+    font-size:clamp(10px, 1.2vw, 25px);
+    z-index: 10;
+    flex-grow: 1;
+    top: 45%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+}
+
+#buttonHolder {
+    top: 45%;
+    position: absolute;
+    right: 50%; 
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+}
+
+.buttonSelector button {
+    font-size: clamp(10px, 1.2vw, 25px);
+
+}
+
+.prevent-select {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+  }

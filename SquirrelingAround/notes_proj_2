@@ -1,0 +1,5 @@
+favicon icon --> in the example for today 
+
+var - can be changed over time, works globally
+let - works like c++ if statment kinda things, more local
+const - constant, can't ve changedt
