@@ -1,7 +1,7 @@
 gsap.registerPlugin(ScrollTrigger);
 
 let audio = document.getElementById("backgroundAudio");
-audio.volume = 0.3;
+audio.volume = 0.2;
 
 const audios = [
     'music/washing.mp3',
