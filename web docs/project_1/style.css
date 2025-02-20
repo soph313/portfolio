@@ -185,14 +185,14 @@ body.no-scroll {
 }
 
 #rose {
-    background-image: url("/project_1/palceholders/Rose Trevis.jpg");
+    background-image: url("palceholders/Rose Trevis.jpg");
     background-size: contain;
     background-repeat: no-repeat;
     height: 100%;
     width: 100%;
 }
 #evie {
-    background-image: url("/project_1/palceholders/evieruddy.jpg");
+    background-image: url("palceholders/evieruddy.jpg");
     background-size: contain;
     background-repeat: no-repeat;
     height: 100%;
@@ -200,7 +200,7 @@ body.no-scroll {
 }
 
 #lilly {
-    background-image: url("/project_1/palceholders/prison.jpg");
+    background-image: url("palceholders/prison.jpg");
     background-size: contain;
     background-repeat: no-repeat;
     height: 100%;
@@ -208,7 +208,7 @@ body.no-scroll {
 }
 
 #kendall {
-    background-image: url("/project_1/palceholders/kendall_oliver.jpg");
+    background-image: url("palceholders/kendall_oliver.jpg");
     background-size: contain;
     background-repeat: no-repeat;
     height: 100%;
