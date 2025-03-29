@@ -123,10 +123,12 @@ gsap.to("#main", {
         onEnter: () => {
             stopSound();
             gsap.to("#main", { opacity: 0 })
+            audio.pause();
         }, // Fade out the element
         onLeaveBack: () => {
             playSound(1, 1, 0);
             gsap.to("#main", { opacity: 1 })
+            audio.play();
         } // Fade in the element back to full opacity
     }
 });
