@@ -1,0 +1,179 @@
+body { 
+    margin: 0; 
+    font-family: "Roboto Flex", sans-serif;
+    background: #ffffff; 
+    overflow-x: hidden; 
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+    
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    max-width: 850px; 
+    margin: 0 auto;
+    padding: 1vh;
+    box-sizing: border-box;
+}
+   
+/* #introScreen {
+    text-align: left; 
+    text-indent: 1.5vw;
+} */
+
+#start {
+    margin-top: 5vh;
+}
+
+.screen { 
+    display: none; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    min-height: 100vh; 
+    text-align: left; 
+    text-indent: 1.5vw;
+    padding: 1vh; 
+    position: relative; 
+}
+    
+.active { 
+    display: flex; 
+}
+    
+button { 
+    margin-top: 2vh; 
+    padding: .5vw 1vh; 
+    font-size: 18px; border: none; 
+    background: #4CAF50; 
+    color: white; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    transition: #45a049 0.3s; 
+}
+    
+button:hover { 
+    background: #45a049; 
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(70px, 3fr)); 
+    gap: 1.5vh;
+    margin-top: 2vh;
+    width: 100%;
+}
+    
+
+.card { 
+    width: 80px; 
+    height: 80px; 
+    background: #f7fff3; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 16px; 
+    cursor: pointer; 
+    user-select: none; 
+    transition: transform 0.3s; 
+    text-align: center;
+    word-break: break-word;
+    text-indent: 0vw;
+}
+
+  
+
+.hidden { 
+    background: #4CAF50; 
+    color: transparent; 
+}
+
+.eyes-screen, .stressTask { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    position: relative; 
+    min-height: 100vh; 
+    width: 100%; 
+}
+
+.eye-container { 
+    display: flex; 
+    gap: 40px; 
+    position: absolute; 
+    justify-content: center;
+    top: 20%; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    flex-wrap: nowrap;
+}
+
+
+.eye {
+    width: 60px;
+    height: 60px;
+    background: white;
+    border: 2px solid black;
+    border-radius: 50%;
+    position: relative;
+    animation: blink 3s infinite;
+}
+
+
+@media (max-width: 600px) {
+    .eye {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.pupil { 
+    width: 20px; 
+    height: 20px; 
+    background: black; 
+    border-radius: 50%; 
+    position: relative; 
+    top: 20px; 
+    left: 20px; 
+}
+
+.countdown { 
+    font-size: 48px; 
+    margin: 20px 0; 
+    color: red; display: 
+    none; 
+    }
+    
+@keyframes blink {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+#distractionContainer {
+    position: absolute;
+    top: 35%;
+
+    width: 200px;
+    display: none;
+    font-size: 14px;
+    color: darkred;
+    align-items: center;
+    justify-content: center;
+}
+
+#fakeHeart {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 80px;
+    color: red;
+    display: none;
+}
+

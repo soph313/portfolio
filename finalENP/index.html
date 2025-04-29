@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mind Under Pressure</title>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script> -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+
+    <!-- stress music for the card game -->
+    <audio id="stressMusic" src="intense-battle-scene-115478.mp3" loop></audio>
+
+    <!-- intro screen opening -->
+    <div id="introScreen" class="screen">
+      <h1>Mind Under Pressure</h1>
+      <p>Welcome! You’ll play two rounds of a memory matching game where your goal is to match pairs of cards with the same word.
+        This isn’t just for fun (though I hope it is)—it’s designed to explore how stress and anxiety affect cognitive performance, particularly on working memory tasks. 
+        Memory games like this are often used in psychological research because they are engaging, simple, and offer clear metrics for performance (Thibodeau, 2021, p. 3143).</p>
+
+      <br>
+      <h3>Why Memory? Why stress?</h3>
+      <p>
+        When we’re anxious, our body enters a heightened state of arousal—our heart rate rises, muscles tense, and we start to sweat. This is your sympathetic nervous system kicking in (Maloney, 2014, p. 406). These physiological reactions require mental resources to regulate—the same resources we need for cognitive tasks. In essence, your body and your brain start competing for attention (Maloney, 2014, p. 410).
+      </p>
+      <p>
+        At the same time, anxiety often brings along a flood of negative thoughts and worries—“What if I mess up?” or “What will people think?” These thoughts also occupy working memory, leaving fewer cognitive resources available to focus on the task (Maloney, 2014, p. 407).
+        This two-pronged effect—physiological arousal and mental distraction—can impair performance, especially when we really want to do well (Maloney, 2014, 407).
+      </p>
+
+      <p>
+        Moderate levels of arousal can actually enhance performance—keeping us alert, focused, and motivated. But if arousal climbs too high, it becomes anxiety, and that’s when performance tends to suffer (Maloney, 2014, p. 403). This phenomenon is often described as the inverted-U relationship between stress and performance.
+      </p>
+
+      <!-- move to baseline screen button -->
+      <button id="start" onclick="showScreen('baselineIntro')">Start</button>
+    </div>
+    
+    <!-- grounding / transitioning user to next task -->
+    <div id="baselineIntro" class="screen">
+      <h2>Baseline Memory Task</h2>
+      <p>You’ll start with a standard memory game—nothing stressful, just matching pairs.</p>
+
+      <!-- move to baseline game -->
+      <button onclick="startBaseline()">Begin</button>
+    </div>
+    
+    <!-- neutral memory game -->
+    <div id="baselineTask" class="screen">
+      <h2>Neutral Memory Game</h2>
+      <div class="card-grid" id="baselineGrid"></div>
+    </div>
+    
+    <!-- reflection of the neutral memory game, justifcation -->
+    <div id="baselineReflection" class="screen">
+      <h2>What You Experienced</h2>
+      <p>You just completed a memory matching task in a low-stress environment. This round served as your baseline—a way to measure your memory performance without distractions or emotional interference.</p>
+      <h3>Scientific Justification:</h3>
+      <p>
+        Memory games like this are often used in psychology research because they are simple, engaging, and effective for measuring working memory (Thibodeau, 2021, p. 3143). 
+        When we aren’t anxious, our minds can focus fully on the task—we’re not distracted by intrusive thoughts or managing physiological responses. 
+        This means that the cognitive load is low, and you can rely more on your full memory capacity (Maloney, 2014, 407). 
+      </p>
+      <p>  
+        How well did your memory serve you under these calm conditions?
+      </p>
+      
+      <!-- move to transition screen 4 stress game -->
+      <button onclick="showScreen('eyesScreen')">Next</button>
+    </div>
+    
+    <!-- transition to the stress memory game -->
+    <div id="eyesScreen" class="screen">
+      <div class="eye-container">
+        <div class="eye">
+          <div class="pupil"></div>
+        </div>
+        <div class="eye">
+          <div class="pupil"></div>
+        </div>
+      </div>    
+
+      <h2>You Are Being Watched</h2>
+      <p>
+        Next, you’ll play again—but this time, with distracting thoughts layered in. 
+        These are drawn from common anxiety themes (Morrison, 2013, p.424) and may simulate how negative thoughts intrude during real-life performance situations.
+      </p>
+      <p>Turn your music on (wear headphones)!</p>
+      
+      <!-- move to stress memory game -->
+      <button onclick="startStressTask()">Begin Task</button>
+    </div>
+    
+    <!-- stress memory game -->
+    <div id="stressTask" class="screen">
+
+      <!-- eye container has issues -->
+      <div class="eye-container">
+        <div class="eye">
+          <div class="pupil"></div>
+        </div>
+        <div class="eye">
+          <div class="pupil"></div>
+        </div>
+      </div>
+
+      <h2>Memory Game Under Pressure</h2>
+      <div class="card-grid" id="stressGrid"></div>
+
+      <!-- distraction messages 4 memory task -->
+      <div id="distractionContainer" ></div>
+      
+      <!-- heartbeat 4 memory task -->
+      <div id="fakeHeart">❤️</div>
+    </div>    
+
+
+    <!-- self eval baseline -->
+    <div id="baselineAnxietyRating" class="screen">
+      <h2>Reflection: How Anxious Did You Feel?</h2>
+      <p>On a scale from 1 (not anxious) to 5 (very anxious)</p>
+      <div>
+        <button onclick="recordBaselineAnxiety(1)">1</button>
+        <button onclick="recordBaselineAnxiety(2)">2</button>
+        <button onclick="recordBaselineAnxiety(3)">3</button>
+        <button onclick="recordBaselineAnxiety(4)">4</button>
+        <button onclick="recordBaselineAnxiety(5)">5</button>
+      </div>
+    </div>
+    
+    <!-- self eval stress -->
+    <div id="stressAnxietyRating" class="screen">
+      <h2>Reflection: How Anxious Did You Feel?</h2>
+      <p>On a scale from 1 (not anxious) to 5 (very anxious)</p>
+      <div>
+        <button onclick="recordStressAnxiety(1)">1</button>
+        <button onclick="recordStressAnxiety(2)">2</button>
+        <button onclick="recordStressAnxiety(3)">3</button>
+        <button onclick="recordStressAnxiety(4)">4</button>
+        <button onclick="recordStressAnxiety(5)">5</button>
+      </div>
+    </div>
+    
+    
+    
+    <!-- stress task reflection & justifcation -->
+    <div id="stressReflection" class="screen">
+      <h2>What You Experienced</h2>
+      <p>The second round introduced subtle emotional pressure: stress-inducing thoughts designed to mimic social anxiety, like feeling judged or watched..</p>
+      <h3>Scientific Justification:</h3>
+      <p>
+        A stress response pulls your attention away from the task (Maloney, 2014, p. 410). 
+        This happens in part because anxiety involves both physiological arousal and mental distraction. 
+        Your body may respond with a racing heart, tense muscles, or sweaty palms—while your mind fills with self-critical thoughts like “What if I mess up?” or “Everyone is watching.” 
+        These effects leave fewer mental resources available for working memory (Maloney, 2014, p. 407; Morrison, 2013, p. 424).
+        If we really care about performing well, it's likely stress is to interfere — especially when negative thoughts intrude (Maloney, 2014, p. 407; Wirth, 2013, p. 75). 
+      </p>
+      <p>  
+        Did you notice a difference in how focused or effective you felt during this round?
+      </p>
+      <!-- move to summary screen -->
+      <button onclick="showSummary()">Finish</button>
+    </div>
+    
+    <!-- THANK YOU -->
+    <div id="thankYouScreen" class="screen">
+      <h2>Thank You!</h2>
+      <p>
+        By comparing the two rounds, you may start to notice how cognitive load, physiological arousal, and emotional state interact in subtle but powerful ways. This activity draws from the research of Maloney (2014, p. 406), Wirth (2013, p. 75), Thibodeau (2021, p. 3143), and Morrison (2013, p. 424), and is designed to reflect the complex interplay between emotion, memory, and performance.
+      </p>
+      <p>This fun experiment is far from controlled, and it does not come close to replicating the measures used in the cited studies. Furthermore, its attempt to recreate test anxiety is really just several distractions, so far from perfect. However, I hope it was a fun way to learn about some awesome psych concepts!</p>
+    
+      <h3>Your Results:</h3>
+      <p id="resultAttempts"></p>
+      <p id="resultAnxiety"></p>
+    
+      <canvas id="resultsChart" width="300" height="200" style="margin-top: 20px;"></canvas>
+
+      <p>Sources
+        <br>Morrison, Amanda, Gordon, Dina, and Richard Heimberg (2013). Anxiety Disorders. Handbook of Cognition and Emotion, The Guilford Press, New York,  NY, pp. 421–594. 
+        <br>Maloney, Erin, Sattizahn, Jason, and Sian L. Beilock (2014). Anxiety and cognition. WIREs Cognitive Science, pp. 403–411. doi: 10.1002/wcs.1299
+        <br>Thibodeau, P., Levy, I., & de Lemos, M. (2021). Exploring mental representation with a memory matching game. Proceedings of the Annual Meeting of the Cognitive Science Society, 43. Retrieved from https://escholarship.org/uc/item/2bv998z0
+        <br>Wirth, Michelle, and Allison Gaffey (2013). Hormones and Emotion: Stress and Beyond. Handbook of Cognition and Emotion, The Guilford Press, New York,  NY, p. 69–94. </p>
+    </div>
+    
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="/libraries/gsap-public/minified/gsap.min.js"></script>
+  <script src="/libraries/gsap-public/minified/ScrollTrigger.min.js"></script>
+
+  <script src="script.js"></script>
+</body>
+</html>
