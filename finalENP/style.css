@@ -30,6 +30,10 @@ body {
     margin-top: 5vh;
 }
 
+p {
+    text-indent: 1.5vw;
+}
+    
 .screen { 
     display: none; 
     flex-direction: column; 
@@ -37,7 +41,6 @@ body {
     justify-content: center; 
     min-height: 100vh; 
     text-align: left; 
-    text-indent: 1.5vw;
     padding: 1vh; 
     position: relative; 
 }
