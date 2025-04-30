@@ -58,7 +58,8 @@ button {
     color: white; 
     border-radius: 8px; 
     cursor: pointer; 
-    transition: #45a049 0.3s; 
+    transition: #45a049 0.3s;
+    text-indent: 0vw;
 }
     
 button:hover { 
