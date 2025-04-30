@@ -53,7 +53,7 @@ p {
 button { 
     margin-top: 2vh; 
     padding: .5vw 1vh; 
-    font-size: 18px; border: none; 
+    font-size: clamp(12px, 2vw, 18px); border: none; 
     background: #4CAF50; 
     color: white; 
     border-radius: 8px; 
@@ -67,6 +67,7 @@ button:hover {
 
 .card-grid {
     display: grid;
+    max-width: 400px;
     grid-template-columns: repeat(auto-fit, minmax(70px, 3fr)); 
     gap: 1.5vh;
     margin-top: 2vh;
@@ -146,13 +147,6 @@ button:hover {
     top: clamp(5px, 1vh, 50px); 
     left: clamp(5px, 1vh, 50px); 
 }
-
-.countdown { 
-    font-size: 48px; 
-    margin: 20px 0; 
-    color: red; display: 
-    none; 
-    }
     
 @keyframes blink {
     0%, 100% { transform: scale(1); }
@@ -166,7 +160,7 @@ button:hover {
     text-align: center; 
     width: 200px;
     display: none;
-    font-size: 14px;
+    clamp(10px, 2vw, 14px)
     color: darkred;
     align-items: center;
     justify-content: center;
@@ -177,8 +171,17 @@ button:hover {
     bottom: 10%;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 80px;
+    font-size: clamp(25px, 5vw, 80px);
     color: red;
     display: none;
 }
+
+h2 {
+    font-size: clamp(15px, 1.5em, 25px)
+}
+
+h1 {
+    font-size: clamp(18px, 2em, 30px)
+}
+
 
