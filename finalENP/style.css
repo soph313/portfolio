@@ -145,8 +145,8 @@ button:hover {
     background: black; 
     border-radius: 50%; 
     position: relative; 
-    top: clamp(5px, 1vh, 50px); 
-    left: clamp(5px, 1vh, 50px); 
+    top: clamp(5px, 2vh, 50px); 
+    left: clamp(5px, 2vh, 50px); 
 }
     
 @keyframes blink {
