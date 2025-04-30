@@ -161,7 +161,7 @@ button:hover {
     text-align: center; 
     width: 200px;
     display: none;
-    clamp(10px, 2vw, 14px)
+    text-size: clamp(10px, 2vw, 14px)
     color: darkred;
     align-items: center;
     justify-content: center;
