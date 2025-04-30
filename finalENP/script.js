@@ -249,7 +249,6 @@ function showSummary() {
     data: {
       labels: ['Neutral Attempts', 'Stress Attempts'],
       datasets: [{
-        label: 'Your Performance',
         data: [attemptsNuetral, attemptsStressed],
         backgroundColor: ['#4CAF50', '#f44336']
       }]
