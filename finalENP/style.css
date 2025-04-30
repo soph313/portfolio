@@ -161,7 +161,7 @@ button:hover {
 #distractionContainer {
     position: absolute;
 /*     top: 30%; */
-
+    text-align: center; 
     width: 200px;
     display: none;
     font-size: 14px;
