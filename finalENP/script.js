@@ -248,6 +248,7 @@ function showSummary() {
   new Chart(ctx, {
     type: 'bar',
     data: {
+      label: 'Your Performance',
       labels: ['Neutral Attempts', 'Stress Attempts'],
       datasets: [{
         data: [attemptsNuetral, attemptsStressed],
