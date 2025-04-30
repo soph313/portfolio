@@ -6,6 +6,7 @@ let attemptsNuetral = 0;
 function showScreen(id) {
   // hide all screens and show the target screen
   document.querySelectorAll('.screen').forEach(s => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
     s.classList.remove('active');
     s.style.display = 'none';
   });
