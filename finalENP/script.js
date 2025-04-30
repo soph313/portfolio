@@ -247,11 +247,11 @@ function showSummary() {
   new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ['Neutral Attempts', 'Stress Attempts', 'Neutral Anxiety', 'Stress Anxiety'],
+      labels: ['Neutral Attempts', 'Stress Attempts'],
       datasets: [{
         label: 'Your Performance',
-        data: [attemptsNuetral, attemptsStressed, baselineAnxiety, stressAnxiety],
-        backgroundColor: ['#4CAF50', '#f44336', '#2196F3', '#ff9800']
+        data: [attemptsNuetral, attemptsStressed],
+        backgroundColor: ['#4CAF50', '#f44336']
       }]
     },
     options: {
