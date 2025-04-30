@@ -74,8 +74,8 @@ button:hover {
     
 
 .card { 
-    width: 80px; 
-    height: 80px; 
+    width: clamp(50px, 8vh, 100px); 
+    height: clamp(50px, 8vh, 100px); 
     background: #f7fff3; 
     display: flex; 
     align-items: center; 
@@ -111,7 +111,7 @@ button:hover {
     gap: 40px; 
     position: absolute; 
     justify-content: center;
-    top: 20%; 
+    top: 10%; 
     left: 50%; 
     transform: translateX(-50%); 
     flex-wrap: nowrap;
@@ -142,8 +142,8 @@ button:hover {
     background: black; 
     border-radius: 50%; 
     position: relative; 
-    top: 20px; 
-    left: 20px; 
+    top: clamp(5px, 1vh, 20px); 
+    left: clamp(5px, 1vh, 20px); 
 }
 
 .countdown { 
