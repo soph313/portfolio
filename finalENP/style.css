@@ -160,7 +160,7 @@ button:hover {
 
 #distractionContainer {
     position: absolute;
-    top: 35%;
+/*     top: 30%; */
 
     width: 200px;
     display: none;
