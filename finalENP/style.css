@@ -143,8 +143,8 @@ button:hover {
     background: black; 
     border-radius: 50%; 
     position: relative; 
-    top: clamp(5px, 1vh, 20px); 
-    left: clamp(5px, 1vh, 20px); 
+    top: clamp(5px, 1vh, 50px); 
+    left: clamp(5px, 1vh, 50px); 
 }
 
 .countdown { 
