@@ -1,0 +1,204 @@
+body {
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.6s ease;
+  background-color: #f5f3ef;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Needed for the pseudo-element */
+  min-height: 100vh;  /* Ensure it fills the full viewport */
+  z-index: 0;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url('image/paper.jpg');
+  background-size: 800px 800px; 
+  background-repeat: repeat;
+  background-position: center;
+  opacity: 0.8; /* This controls the background image opacity */
+  z-index: -1; /* Keeps the background behind the content */
+}
+
+
+button {
+  font-family: "Cabin Sketch", sans-serif;
+  border-radius: clamp(10px, 1vw, 20px);
+  background-image: url('image/paper2.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: clamp(30px, 3vw, 40px);
+}
+
+#introIMG {
+  height: 45vh;
+  width: auto;
+  padding-left: 8vw;
+  padding-right: 8vw;
+}
+
+.story-section {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+#intro {
+  display: flex;
+  top: 30%;
+  padding: 5vh 2rem;
+  max-width: 800px;
+}
+
+.story-section.active {
+  display: block;
+  opacity: 1;
+}
+
+    
+.nav {
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+    
+button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    margin: 0 0.5rem;
+    cursor: pointer;
+}
+      
+
+.scrollytelling {
+    padding: 5vh 2rem;
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  .content-block {
+    opacity: 0;
+    transform: translateY(50px);
+    margin-bottom: 3rem;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .content-block img {
+    width: auto;
+    height: 40vh;
+    /* border-radius: 12px; */
+    margin-bottom: 1rem;
+  }
+  
+  .content-block p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+#theChair {
+  height: 50vh;
+  margin-top: 10vh;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+}
+
+ p {
+  font-family: "Cabin Sketch", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+ }
+
+ h1 {
+  font-family: "Rubik Dirt", system-ui;
+  font-weight: 400;
+  font-style: normal;
+ }
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 5vh;
+  align-self: center;
+}
+
+#chair-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  top: 0;
+  margin-bottom: 10vh;
+}
+
+#baking-block {
+  margin-bottom: 10vh;
+}
+
+#pie-block {
+  margin-bottom: 10vh;
+}
+/* #gmaBro{
+  padding-bottom: 10vh;
+} */
+
+#theStar {
+  height: 65vh;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+}
+
+#theChest {
+  height: 50vh;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  padding-top: 10vh;
+}
+
+#chest-block {
+  padding-bottom: 15vh;
+}
+
+#blanket-block {
+  padding-bottom: 10vh;
+}
+#final {
+  height: 65vh;
+  width: auto;
+  padding-bottom: 35vh;
+}
+
+.text-block {
+  padding-bottom: 45vh;
+}
+
+.barn-blocks {
+  padding-bottom: 10vh;
+}
